@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+$milk: #FFF6E6;
+$white: #ffffff;
+$dark: #3D3936;
+$orange: #FF6E00;
+
+$fontTitle: 'Yanone Kaffeesatz', sans-serif;
+$fontText: 'Noto Sans TC', sans-serif;
+
+$boxShadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+
+* {
+  padding: 0; margin: 0;
+  box-sizing: border-box;
+  font-family: $fontText;
+  color: $dark;
+}
+
+body {
+  background-color: $milk;
+}
+
+a {
+  color: $dark;
+  text-decoration: none;
+}
+
+.mainWrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $white;
+  padding: 1rem;
+  margin-right: 2rem;
+  box-shadow: $boxShadow;
+	&__photo {
+    object-fit: contain;
+	}
+
+	&__content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+	}
+}
+
+.text {
+  font-size: 1rem;
+    &--title {
+      font-family: $fontTitle;
+      line-height: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+}
+
+.social {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+    &__icon {
+      margin-right: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+
+        &--github {
+          background-image: url("./../img/icons/github.webp");
+          background-position: center;
+          background-size: cover;
+        }
+
+        &--fb {
+          background-image: url("./../img/icons/fb.webp");
+          background-position: center;
+          background-size: cover;
+        }
+
+        &--telegram {
+          background-image: url("./../img/icons/telegram.webp");
+          background-position: center;
+          background-size: cover;
+        }
+
+        &--mail {
+          background-image: url("./../img/icons/email.webp");
+          background-position: center;
+          background-size: cover;
+        }
+    }
+}
+
+.skills {
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $white;
+  padding: 1rem;
+  margin-right: 2rem;
+  box-shadow: $boxShadow;
+}
