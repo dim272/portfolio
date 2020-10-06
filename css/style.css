@@ -8,7 +8,7 @@
   color: #3D3936; }
 
 body {
-  background-color: #FFF6E6; }
+  background-color: #F2F2F2; }
 
 a {
   color: #3D3936;
@@ -16,9 +16,10 @@ a {
 
 .mainWrap {
   height: 100vh;
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: flex-start; }
 
 .about {
   display: flex;
@@ -85,3 +86,34 @@ a {
   padding: 1rem;
   margin-right: 2rem;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2); }
+
+.portfolio {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; }
+  .portfolio__wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap; }
+  .portfolio__card {
+    width: 25vh;
+    height: 25vh;
+    background-color: #ffffff;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    position: relative; }
+  .portfolio__preview {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain; }
+  .portfolio__text {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(246, 246, 246, 0.4) 30%, white 100%); }
