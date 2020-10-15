@@ -1,26 +1,58 @@
 section.portfolio
   div.portfolio__wrap
+    
+    div.portfolio__card
+      img.portfolio__preview(src="./img/previews/plusminus.webp")
+      div.portfolio__textWrap 
+        p.portfolio__text PlusMinus.top
+        p.portfolio__text Desktop, Mobile
+        p.portfolio__text github: 
+          a.portfolio__text(href="#") [PUG] 
+          a.portfolio__text(href="#") [SCSS] 
+          a.portfolio__text(href="#") [jQuery]
+      div.portfolio__textHover
+        p.portfolio__text PlusMinus.top
+        p.portfolio__text Desktop, Mobile
+        p.portfolio__text github: 
+          a.portfolio__text(href="#") [PUG] 
+          a.portfolio__text(href="#") [SCSS] 
+          a.portfolio__text(href="#") [jQuery]
+        p.portfolio__text На карантине я работал на удалёнке и изучал JS. Я отвечал на звонки и в конце дня должен был делать отчёт.
+        | Мне понадобился гибкий настраиваемый список, в котором можно было вести подсчёт входящих звонков.
+        | Сперва пришлось выполнять задачу с помощью Google таблиц, что было не очень удобно.
+        | В итоге я решил сам написать такой инструмент и заодно разобраться с jQuery.
+        | Счётчик работает с local storage. Реализованы все основные задачи, но ещё есть ещё много задумок.
+        | По мере изучения новых фреймворков, хочется переписать счётчик на Vue.js, но пока на это не хватает времени.
+    
     div.portfolio__card
       img.portfolio__preview(src="./img/previews/AutoBrandmePRO.webp")
-      p.portfolio__text.text Landing, Desctop
+      div.portfolio__textWrap 
+        p.text.text--white Desktop, Mobile
+        p.text.text--white github: 
+          a.text--white(href="#") [HTML] 
+          a.text--white(href="#") [SCSS]
+        
     div.portfolio__card
       img.portfolio__preview(src="./img/previews/GoldHouse.webp")
-      p.portfolio__text.text Landing, Desctop
+      div.portfolio__textWrap 
+        p.text.text--white Desktop
+        p.text.text--white github: 
+          a.text--white(href="#") [PUG] 
+          a.text--white(href="#") [SCSS]
+        
     div.portfolio__card
       img.portfolio__preview(src="./img/previews/MNTN.webp")
-      p.portfolio__text.text Landing, Desctop
+      div.portfolio__textWrap 
+        p.text.text--white Desktop
+        p.text.text--white github: 
+          a.text--white(href="#") [PUG] 
+          a.text--white(href="#") [SCSS] 
+          a.text--white(href="#") [JS]
+        
     div.portfolio__card
-      img.portfolio__preview(src="./img/previews/.webp")
-      p.portfolio__text.text Landing, Desctop
-    div.portfolio__card
-      img.portfolio__preview(src="./img/previews/.webp")
-      p.portfolio__text.text Landing, Desctop
-    div.portfolio__card
-      img.portfolio__preview(src="./img/previews/.webp")
-      p.portfolio__text.text Landing, Desctop
-    div.portfolio__card
-      img.portfolio__preview(src="./img/previews/.webp")
-      p.portfolio__text.text Landing, Desctop
-    div.portfolio__card
-      img.portfolio__preview(src="./img/previews/.webp")
-      p.portfolio__text.text Landing, Desctop
+      img.portfolio__preview(src="./img/previews/metroblog.webp")
+      div.portfolio__textWrap 
+        p.text.text--white Desktop
+        p.text.text--white github: 
+          a.text--white(href="#") [HTML]          
+          a.text--white(href="#") [SCSS]

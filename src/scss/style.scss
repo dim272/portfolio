@@ -5,6 +5,17 @@ $milk: #F2F2F2;
 $white: #ffffff;
 $dark: #3D3936;
 $orange: #FF6E00;
+$gradient-white: linear-gradient(to bottom, rgba(255,255,255,0) 10%, rgba(255,255,255,0.27) 30%, rgba(255,255,255,1) 100%);
+@mixin gradient-dark {
+  background: rgba(61,57,54,0);
+  background: -moz-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(61,57,54,0)), color-stop(20%, rgba(61,57,54,0.21)), color-stop(38%, rgba(61,57,54,0.62)), color-stop(100%, rgba(61,57,54,1)));
+  background: -webkit-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
+  background: -o-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
+  background: -ms-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
+  background: linear-gradient(to bottom, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3936', endColorstr='#3d3936', GradientType=0 );
+}
 
 $fontTitle: 'Yanone Kaffeesatz', sans-serif;
 $fontText: 'Noto Sans TC', sans-serif;
@@ -65,6 +76,11 @@ a {
       line-height: 2rem;
       font-size: 2rem;
       font-weight: 700;
+    }
+
+    &--white {
+      font-size: 0.8rem;
+      color: $white
     }
 }
 
@@ -132,9 +148,8 @@ a {
   }
 
   &__card {
-    width: 25vh;
-    height: 25vh;
-    background-color: $white;
+    width: 45%;
+    height: 50vh;
     margin-right: 2rem;
     margin-bottom: 2rem;
     box-shadow: $boxShadow;
@@ -144,15 +159,26 @@ a {
   &__preview {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    background-position: top;
+    object-fit: cover;
   }
 
   &__text {
+    font-size: 0.7rem;
+    color: $white;
+  }
+
+  &__textWrap {
     width: 100%;
-    height: 30%;
+    height: 20%;
+    padding-bottom: 0.5rem;
     position: absolute;
     bottom: 0;
-    text-align: center;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(246,246,246,0.4) 30%, rgba(255,255,255,1) 100%);
+    @include gradient-dark
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
