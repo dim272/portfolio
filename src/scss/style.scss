@@ -6,21 +6,18 @@ $white: #ffffff;
 $dark: #3D3936;
 $orange: #FF6E00;
 $gradient-white: linear-gradient(to bottom, rgba(255,255,255,0) 10%, rgba(255,255,255,0.27) 30%, rgba(255,255,255,1) 100%);
-@mixin gradient-dark {
-  background: rgba(61,57,54,0);
-  background: -moz-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(61,57,54,0)), color-stop(20%, rgba(61,57,54,0.21)), color-stop(38%, rgba(61,57,54,0.62)), color-stop(100%, rgba(61,57,54,1)));
-  background: -webkit-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
-  background: -o-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
-  background: -ms-linear-gradient(top, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
-  background: linear-gradient(to bottom, rgba(61,57,54,0) 0%, rgba(61,57,54,0.21) 20%, rgba(61,57,54,0.62) 38%, rgba(61,57,54,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3936', endColorstr='#3d3936', GradientType=0 );
-}
+$gradient-dark: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 11%, rgba(0,0,0,0.7) 59%, rgba(0,0,0,0.7) 100%);
 
 $fontTitle: 'Yanone Kaffeesatz', sans-serif;
 $fontText: 'Noto Sans TC', sans-serif;
 
-$boxShadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+$boxShadow:
+0 0.4px 2.2px rgba(0, 0, 0, 0.12),
+0 1px 5.3px rgba(0, 0, 0, 0.086),
+0 1.9px 10px rgba(0, 0, 0, 0.072),
+0 3.4px 17.9px rgba(0, 0, 0, 0.06),
+0 6.3px 33.4px rgba(0, 0, 0, 0.048),
+0 15px 80px rgba(0, 0, 0, 0.034);
 
 * {
   padding: 0; margin: 0;
@@ -31,6 +28,9 @@ $boxShadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 
 body {
   background-color: $milk;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 a {
@@ -39,60 +39,28 @@ a {
 }
 
 .mainWrap {
-  height: 100vh;
+  width: 95%;
+  max-width: 1600px;
   margin-top: 10vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-}
-
-.about {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: $white;
-  padding: 1rem;
-  margin-right: 2rem;
-  box-shadow: $boxShadow;
-	&__photo {
-    object-fit: contain;
-	}
-
-	&__content {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-	}
-}
-
-.text {
-  font-size: 1rem;
-    &--title {
-      font-family: $fontTitle;
-      line-height: 2rem;
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    &--white {
-      font-size: 0.8rem;
-      color: $white
-    }
+  flex-wrap: wrap;
 }
 
 .social {
-  margin: 0 auto;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
 
     &__icon {
-      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
       width: 2rem;
       height: 2rem;
 
@@ -122,63 +90,57 @@ a {
     }
 }
 
-.skills {
+.card {
   height: 50vh;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: $white;
-  padding: 1rem;
-  margin-right: 2rem;
+  width: 30%;
   box-shadow: $boxShadow;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+
+  &--x2 {
+    width: calc(60% + 2rem);
+    padding: 1% 3%;
+  }
 }
 
-.portfolio {
-  width: 50vw;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  &__wrap {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  &--avatar {
+    object-fit: contain;
+    background-color: black;
   }
+}
 
-  &__card {
-    width: 45%;
-    height: 50vh;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: $boxShadow;
-    position: relative;
+.content {
+  width: 100%;
+  height: 45%;
+  bottom: 0;
+  padding: 5vh 2vh;
+  position: absolute;
+  background: $gradient-dark;
+  transition: height 1s;
+
+
+  &:hover {
+    height: 55%;
+    transition: height 1s;
   }
+}
 
-  &__preview {
-    width: 100%;
-    height: 100%;
-    background-position: top;
-    object-fit: cover;
+.text {
+  color: $white;
+  &--title {
+    font-size: 1.5rem;
   }
-
-  &__text {
-    font-size: 0.7rem;
+  &>a {
     color: $white;
   }
-
-  &__textWrap {
-    width: 100%;
-    height: 20%;
-    padding-bottom: 0.5rem;
-    position: absolute;
-    bottom: 0;
-    @include gradient-dark
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+  &--black {
+    color: $dark;
   }
 }
