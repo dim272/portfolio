@@ -3,21 +3,19 @@
 
 $milk: #F2F2F2;
 $white: #ffffff;
-$dark: #3D3936;
+$dark: #16161a;
 $orange: #FF6E00;
-$gradient-white: linear-gradient(to bottom, rgba(255,255,255,0) 10%, rgba(255,255,255,0.27) 30%, rgba(255,255,255,1) 100%);
 $gradient-dark: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.7) 100%);
 
-$fontTitle: 'Yanone Kaffeesatz', sans-serif;
 $fontText: 'Noto Sans TC', sans-serif;
 
-$boxShadow:
-0 0.4px 2.2px rgba(0, 0, 0, 0.12),
-0 1px 5.3px rgba(0, 0, 0, 0.086),
-0 1.9px 10px rgba(0, 0, 0, 0.072),
-0 3.4px 17.9px rgba(0, 0, 0, 0.06),
-0 6.3px 33.4px rgba(0, 0, 0, 0.048),
-0 15px 80px rgba(0, 0, 0, 0.034);
+
+
+$mobile: 425px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-L: 1440px;
+
 
 * {
   padding: 0; margin: 0;
@@ -27,7 +25,7 @@ $boxShadow:
 }
 
 body {
-  background-color: $milk;
+  background-color: $dark;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -44,37 +42,62 @@ a {
   margin-top: 10vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
+  @media (max-width: $tablet) {
+    margin-top: 3vh;
+  }
 }
 
 .social {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   padding: 2vh;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+
+  @media (min-width: $desktop) {
+    height: 50%;
+  }
+
 
     &__icon {
-      width: 2vw;
-      height: 2vw;
+      width: 4vh;
+      height: 4vh;
       margin-right: 1vh;
       background-position: center;
-      background-size: contain;
+      background-size: cover;
+      @media (max-width: $mobile) {
+        width: 6vw;
+        height: 6vw;
+      }
+      @media (max-width: $tablet) {
+        width: 5vh;
+        height: 5vh;
+      }
+      @media (min-width: $desktop-L) {
+        width: 2vw;
+        height: 2vw;
+      }
 
         &--github {
-          background-image: url("./../img/icons/github.webp");
+          background-image: url("./../img/icons/github.svg");
         }
 
         &--fb {
-          background-image: url("./../img/icons/fb.webp");
+          background-image: url("./../img/icons/fb.svg");
         }
 
         &--telegram {
-          background-image: url("./../img/icons/telegram.webp");
+          background-image: url("./../img/icons/telegram.svg");
         }
 
         &--mail {
-          background-image: url("./../img/icons/email.webp");
+          background-image: url("./../img/icons/email.svg");
         }
     }
 }
@@ -82,23 +105,72 @@ a {
 .card {
   height: 50vh;
   width: 30%;
-  box-shadow: $boxShadow;
   border-radius: 1rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
   overflow: hidden;
   position: relative;
 
+  box-shadow: 0px 0px 15px -5px rgba(255,255,255,0.4);
+
+  @media (max-width: $mobile) {
+    width: 90%;
+  }
+
+  @media (min-width: 426px) and (max-width: $tablet) {
+    width: 75%;
+    height: 80vh;
+  }
+
+  @media (min-width: 769px) and (max-width: $desktop) {
+    width: 35%;
+    height: 80vh;
+  }
+
+  &__link {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
   &--about{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    background-color: black;
+    @media (max-width: $mobile) {
+      width: 90%;
+      height: 40vh;
+    }
+    @media (min-width: 426px) and (max-width: $tablet) {
+      width: 75%;
+      height: 40vh;
+      padding: 4vw;
+    }
+    @media (min-width: 769px) and (max-width: $desktop) {
+      width: 75%;
+      height: 40vh;
+    }
   }
 
   &--x2 {
     width: calc(60% + 2rem);
-    padding: 2.5% 3%;
+    background-color: black;
+    padding: 0 2vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @media (max-width: $mobile) {
+      width: 90%;
+      height: auto;
+      padding: 4vw;
+    }
+    @media (min-width: 426px) and (max-width: $desktop) {
+      width: 75%;
+      height: auto;
+      padding: 4vw;
+    }
   }
 }
 
@@ -106,21 +178,22 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
   &--avatar {
-    position: absolute;
     object-fit: contain;
     background-color: black;
+    right: -15%;
   }
 }
 
 .content {
   width: 100%;
-  height: 5.7vw;
-  padding: 5vh 2vh;
+  height: auto;
+  padding: 5vh 2vh 2vh;
   position: absolute;
+  right: 0;
   bottom: 0;
   background: $gradient-dark;
-  transition: height 0.5s;
 
   &__top {
     display: flex;
@@ -129,24 +202,43 @@ a {
   }
 
   &--about {
-    height: 19vh;
-    transition: height 0.5s;
-  }
-
-  &:hover {
-    height: 27vh;
-    transition: height 0.5s;
+    height: auto;
+    padding: 0 2vh 2vh;
+    background: none;
   }
 }
 
 .text {
-  font-size: 2vh;
+  font-size: 1vw;
   color: $white;
+
+  @media (max-width: $mobile) {
+    font-size: 3vw;
+  }
+
+  @media (min-width: 426px) and (max-width: $tablet) {
+    font-size: 2vw;
+  }
+
+  @media (min-width: 769px) and (max-width: $desktop) {
+    font-size: 1.5vw;
+  }
+
+  @media (min-width: 2000px) {
+    font-size: 0.8vw;
+  }
+
   &--title {
     font-size: 2.5vh;
-  }
-  &>a {
-    color: $white;
+    @media (max-width: $mobile) {
+      font-size: 4vw;
+    }
+    @media (min-width: 426px) and (max-width: $tablet) {
+      font-size: 3vw;
+    }
+    @media (min-width: 769px) and (max-width: $desktop) {
+      font-size: 2vw;
+    }
   }
   &--black {
     color: $dark;
